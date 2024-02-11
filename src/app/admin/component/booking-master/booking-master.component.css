@@ -1,0 +1,32 @@
+.booking.-master .-table {
+  overflow: scroll;
+}
+.booking {
+  padding: 15px 15px 0px 15px;
+}
+
+.booking.-master .-table .mat-mdc-table .mdc-data-table__header-row {
+  position: sticky;
+  top: 0px;
+}
+
+.booking.-master .-table .ti-eye {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.booking.-master .-table .-customerName {
+  color: blue;
+}
+/* .cdk-overlay-pane {
+  top: 20px;
+  position: absolute !important;
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  inset: 50px !important;
+} */

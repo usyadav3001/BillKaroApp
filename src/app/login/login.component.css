@@ -1,0 +1,15 @@
+.login-block .container .text-center h1 {
+  font-size: 27px;
+  font-weight: 500;
+  color: #fff;
+}
+.login-block .container .btn-primary {
+  background-color: #856ec6 !important;
+}
+.login-block .container .auth-box .text-center {
+  font-size: 21px;
+}
+.login-block .container .error {
+  width: 300px;
+  color: #dc3545;
+}

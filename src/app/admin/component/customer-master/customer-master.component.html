@@ -1,0 +1,54 @@
+<div class="card item-master">
+    <div class="card-header">
+        <h5>Manage Customer</h5>
+
+        <div class="card-header-right">
+            <ul class="list-unstyled card-option">
+                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                <li><i class="fa fa-window-maximize full-card"></i></li>
+                <li><i class="fa fa-minus minimize-card"></i></li>
+                <li><i class="fa fa-refresh reload-card"></i></li>
+                <li><i class="fa fa-trash close-card"></i></li>
+            </ul>
+        </div>
+        <div class="tools">
+            <div>
+                <input type="text" (keyup)="onQuickSearch($event)" class="form-control form-control-round"
+                    placeholder="Search">
+            </div>
+            <div class="col-sm-3">
+                {{lblRecordCount}}
+            </div>
+            <button (click)="onAddNewItemClick()" class="btn btn-primary btn-round waves-effect waves-light"
+                style="float:right">Add Item</button>
+        </div>
+    </div>
+    <div class="card-block table-border-style">
+        <div class="table-responsive" [ngStyle]="{'height':tableHeight}">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Full Name</th>
+                        <th>Phone No.</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of arrCustomerData | filterPipe:this.quickSearchValue:['FullName']let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{item.FullName}}</td>
+                        <td>{{item.PhoneNo}}</td>
+                        <td>{{item.Email}}</td>
+                        <td>{{item.Address}}</td>
+                        <td><span class="fa fa-edit" (click)="onEditIconClick({itemData:item})"></span>
+                            <span class="fa fa-trash" (click)="onDeleteIconClick(item.id)"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

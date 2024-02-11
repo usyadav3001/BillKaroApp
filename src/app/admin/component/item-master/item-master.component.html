@@ -1,0 +1,52 @@
+<div class="card item-master">
+    <div class="card-header">
+        <h5>Manage Item</h5>
+
+        <div class="card-header-right">
+            <ul class="list-unstyled card-option">
+                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                <li><i class="fa fa-window-maximize full-card"></i></li>
+                <li><i class="fa fa-minus minimize-card"></i></li>
+                <li><i class="fa fa-refresh reload-card"></i></li>
+                <li><i class="fa fa-trash close-card"></i></li>
+            </ul>
+        </div>
+        <div class="tools">
+            <div>
+                <input type="text" (keyup)="onQuickSearch($event)" class="form-control form-control-round"
+                    placeholder="Search">
+            </div>
+            <div class="col-sm-3">
+                {{lblRecordCount}}
+            </div>
+            <button (click)="onAddNewItemClick()" class="btn btn-primary btn-round waves-effect waves-light"
+                style="float:right">Add Item</button>
+        </div>
+    </div>
+    <div class="card-block table-border-style">
+        <div class="table-responsive" [ngStyle]="{'height':tableHeight}">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Unit</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of arrItemData | filterPipe:this.quickSearchValue:['itemName']let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{item.ItemName}}</td>
+                        <td>{{item.Price}}</td>
+                        <td>{{item.UnitName}}</td>
+                        <td><span class="fa fa-edit" (click)="onEditIconClick({itemData:item})"></span>
+                            <span class="fa fa-trash" (click)="onDeleteIconClick(item.Id)"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

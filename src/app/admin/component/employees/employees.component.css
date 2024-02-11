@@ -1,0 +1,26 @@
+.table-hover .fa-edit {
+    padding-right: 25px;
+    font-size: 20px;
+  }
+  .table-hover .fa {
+    font-size: 20px;
+  }
+.right-align {
+    text-align: right;
+  }
+  
+  .card .card-block {
+    padding: 0px 20px 20px 20px !important;
+  }
+  .employees-table .tools {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+    padding: 25px 12px;
+  }
+  .employees-table .tools h5{
+    font-size: 21px;
+    font-weight: 500;
+  }
+ 

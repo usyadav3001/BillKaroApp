@@ -1,0 +1,240 @@
+<div class="card item-master">
+    <div class="card-header">
+        <h5>Booking</h5>
+    </div>
+
+    <div class="booking">
+        <form class="form-material">
+            <div class="form-group row first-row">
+                <div class="col-sm-7">
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <div style="margin-top:-15px">
+                                <mat-form-field class="example-full-width -customer" appearance="fill">
+                                    <mat-label>Customer</mat-label>
+                                    <input type="text" placeholder="" aria-label="Number" matInput
+                                        [formControl]="txtCustomerFormControl" [matAutocomplete]="auto"
+                                        (blur)="onTxtCustomerFormControlBlur()">
+                                    <mat-autocomplete #auto="matAutocomplete"
+                                        (optionSelected)="onCustomerOptionSelected($event)">
+                                        <mat-option *ngFor="let option of arrCustomerfilteredOptions | async"
+                                            [value]="option.FullName">
+                                            {{option.FullName}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 -customer-phone-no display-flex">
+                            <div class="form-group form-primary">
+                                <input type="number" name="phoneNumber" [(ngModel)]="phoneNumber" class="form-control"
+                                    required="">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Phone no.</label>
+                            </div>
+                            <button class="add-btn -mat-btn" mat-raised-button color="primary"
+                                (click)="onAddNewCustomerIconClick()" [disabled]="isAddNewCustomerBtnDisabled"> <i
+                                    class="ti-plus"></i></button>
+
+                            <button class="-add-discription-btn" mat-raised-button color="primary"
+                                (click)="onAddDiscriptionIconClick()">Add
+                                Discription</button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="display-flex" style="justify-content: flex-end;">
+                        <div class="-order-no form-group form-primary -numeric">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Order No.</mat-label>
+                                <input matInput [value]="orderNumber" disabled>
+                            </mat-form-field>
+                            <!-- <input type="text" disabled name="orderNumber" [(ngModel)]="orderNumber"
+                                class="form-control" required="">
+                            <span class="form-bar"></span>
+                            <label class="float-label">Order no.</label> -->
+                        </div>
+                        <div class="form-group form-primary">
+                            <input type="date" name="orderDate" [(ngModel)]="orderDate" class="form-control"
+                                required="">
+                            <span class="form-bar"></span>
+                            <label class="float-label">Order Date</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="col-sm-12 second-row">
+            <div class="card-block table-border-style">
+                <div class="table-responsive" [ngStyle]="{'height':tableHeight}">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Item</th>
+                                <th class="width-10px">Qty</th>
+                                <th class="width-10px">Unit</th>
+                                <th class="width-10px">Price/Unit</th>
+                                <th class="text-align-center width-10px">Discount
+                                    <div class="display-flex space-evenly " style=" border-top: 1px solid #ede8e8;">
+                                        <span>%</span>
+                                        <span>Amount</span>
+                                    </div>
+                                </th>
+                                <th class="text-align-center width-10px">Tax
+                                    <div class="display-flex space-evenly" style=" border-top: 1px solid #ede8e8;">
+                                        <span>%</span>
+                                        <span>Amount</span>
+                                    </div>
+                                </th>
+                                <th class="width-10px">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of arrBookingData;let i=index">
+                                <td scope="row" class="-index">{{i+1}}</td>
+                                <td class="-item-td">
+                                    <span>{{data.ItemName}}</span>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <input type="text" placeholder="" name="item" aria-label="Number" matInput
+                                            [formControl]="txtItemFormControl" [matAutocomplete]="auto1"
+                                            (blur)="onTxtItemFormControlBlur(data)"
+                                            (keyup)="onTxtItemFormControlKeyUp({event:$event,data})">
+                                        <mat-autocomplete #auto1="matAutocomplete"
+                                            (optionSelected)="onTxtItemOptionSelected(data)">
+                                            <mat-option *ngFor="let option of arrItemsfilteredOptions | async"
+                                                [value]="option.ItemName">
+                                                {{option.ItemName}}
+                                            </mat-option>
+                                        </mat-autocomplete>
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <div class="-qty">
+                                        <input type="number" name="quantity" [(value)]="data.quantity"
+                                            class="form-control -right-align"
+                                            (keyup)="onQuantityChange({event:$event,objItemData:data})"
+                                            (blur)="onQuantityChange({event:$event,objItemData:data})">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="-unit">
+                                        <input type="text" name="unit" [(value)]="data.unit"
+                                            class="form-control -right-align">
+                                    </div>
+                                    <!-- <mat-form-field class="-numeric" style="margin-top:-8px">
+                                        <mat-select [value]="data.unit">
+                                            <mat-option *ngFor="let u of arrUnitData"
+                                                [value]="u.value">{{u.value}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field> -->
+                                </td>
+                                <td>
+                                    <div class="-numeric">
+                                        <input type="number" name="price" [(value)]="data.price"
+                                            class="form-control -right-align"
+                                            (keyup)="onPriceChange({event:$event,objItemData:data})"
+                                            (blur)="onPriceChange({event:$event,objItemData:data})">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="display-flex">
+                                        <div class="-percentage">
+                                            <input type="number" name="discountPercentage"
+                                                [(value)]="data.discountPercentage" class="form-control -right-align"
+                                                (keyup)="onDiscountPercentageChange({event:$event,objItemData:data})"
+                                                (blur)="onDiscountPercentageChange({event:$event,objItemData:data})">
+                                        </div>
+                                        <div class="-numeric">
+                                            <input type="number" name="discountAmount" [(value)]="data.discountAmount"
+                                                class="form-control -right-align"
+                                                (keyup)="onDiscountAmountChange({event:$event,objItemData:data})"
+                                                (blur)="onDiscountAmountChange({event:$event,objItemData:data})">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="display-flex">
+                                        <div class="-percentage">
+                                            <input type="number" name="taxPercentage" [value]="data.taxPercentage"
+                                                class="form-control -right-align"
+                                                (keyup)="onTaxPercentageChange({event:$event,objItemData:data})"
+                                                (blur)="onTaxPercentageChange({event:$event,objItemData:data})">
+                                        </div>
+                                        <div class="-numeric">
+                                            <input type="number" name="taxAmount" [value]="data.taxAmount"
+                                                class="form-control -right-align"
+                                                (keyup)="onTaxAmountChange({event:$event,objItemData:data})"
+                                                (blur)="onTaxAmountChange({event:$event,objItemData:data})">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="display-flex -total-amount -right-align">
+                                    <div class="-numeric">
+                                        <input type="number" name="totalAmount" [value]="data.totalAmount"
+                                            class="form-control -right-align">
+                                    </div>
+                                    <i class="fa fa-trash" (click)="onItemDelete(i)"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="-add-row-div">
+                                        <button class="add-btn -add-row-btn" mat-raised-button color="primary"
+                                            (click)="onAddNewRowIconClick()"> <i class="ti-plus">Add Row</i> </button>
+                                        <!-- <button (click)="onAddNewRowIconClick()" type="button"
+                                            class="btn btn-primary waves-effect waves-light add-row-btn">
+                                            <i class="ti-plus">Add Row</i>
+                                        </button> -->
+                                        <b>Total</b>
+                                    </div>
+                                </td>
+                                <td class="-right-align">{{getTotalQuantity()}}</td>
+                                <td></td>
+                                <td></td>
+                                <td class="-right-align">{{getTotalDiscount()}}</td>
+                                <td class="-right-align">{{getTotalTax()}}</td>
+                                <td class="-center-align">{{getTotalAmount()}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grand-total-div display-flex" style="justify-content: space-between;">
+                    <div class="display-flex" style="grid-gap: 10px;margin-top:10px">
+                        <div class="-add-row-div">
+                            <button (click)="onPrintIconClick()" type="button"
+                                class="btn btn-primary waves-effect waves-light add-row-btn">
+                                <i class="ti-printer"> Print</i>
+                            </button>
+                        </div>
+                        <div class="-add-row-div">
+                            <button (click)="onSaveBooking()" type="button"
+                                class="btn btn-primary waves-effect waves-light add-row-btn">
+                                <i class="ti-save"> Save</i>
+                            </button>
+                        </div>
+                    </div>
+                    <form class="form-material display-flex">
+                        <div class=" form-group form-primary -numeric"
+                            style="padding-right: 25px;margin-top: 10px;width:140px!important">
+                            <input type="text" name="orderNumber" class="form-control" required=""
+                                (keyup)="onTotalDiscountAmountChange({event:$event})"
+                                (blur)="onTotalDiscountAmountChange({event:$event})">
+                            <span class="form-bar"></span>
+                            <label class="float-label">Discount Amount</label>
+                        </div>
+                        <div class=" form-group form-primary grandTotal" style="margin-top:10px">
+                            <input type="number" name="orderNumber" [value]="getGrandTotalAmount()" class="form-control"
+                                required="">
+                            <span class="form-bar"></span>
+                            <label class="float-label">Grand Total</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

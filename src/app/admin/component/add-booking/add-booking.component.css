@@ -1,0 +1,166 @@
+.booking {
+  padding: 15px 15px 0px 15px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.booking .btn-primary.disabled,
+.btn-primary:disabled {
+  opacity: 0.2;
+}
+.example-full-width {
+  width: 100%;
+}
+.booking .add-btn .ti-plus {
+  margin-left: -8px;
+  position: absolute;
+  margin-top: -6px;
+}
+.booking .add-btn {
+  height: 10px;
+  margin-top: 18px;
+}
+.booking .first-row {
+  display: flex;
+  justify-content: space-between;
+}
+.booking .first-row .-customer {
+  margin-top: 15px !important;
+}
+.booking .first-row .-customer .mat-mdc-input-element {
+  font-size: 19px !important;
+}
+.booking
+  .first-row
+  .-customer
+  .mat-mdc-form-field:not(.mat-form-field-no-animations)
+  .mdc-floating-label {
+  margin-top: -3px;
+}
+.booking .second-row {
+  margin-top: -20px;
+  padding: 0px !important;
+}
+.booking .second-row .card-block {
+  padding: 0px !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.display-flex {
+  display: flex;
+}
+.space-evenly {
+  justify-content: space-evenly;
+}
+.text-align-center {
+  text-align: center;
+}
+.booking .table td,
+.booking .table th {
+  padding: 5px 5px 0px 5px !important;
+  border: 1px solid #ede8e8;
+  position: relative;
+}
+.booking .width-10px {
+  width: 10px;
+}
+
+.booking .-qty {
+  width: 65px !important;
+}
+
+.booking .-unit {
+  width: 80px !important;
+}
+.booking .-numeric {
+  width: 90px !important;
+}
+.booking .-percentage {
+  width: 65px !important;
+}
+
+.booking .second-row .example-full-width {
+  margin-top: -7px !important;
+}
+.booking .second-row .-index {
+  line-height: 43px;
+}
+
+.booking .add-row-btn {
+  width: 115px;
+  margin-bottom: 5px;
+  height: 44px;
+  background: #448aff !important;
+}
+.booking .-add-row-btn {
+  width: 115px;
+  margin-bottom: 5px;
+  height: 23px;
+  background: #448aff !important;
+  margin-top: 0px;
+}
+.booking .add-row-btn .ti-plus,
+.booking .-add-row-btn .ti-plus {
+  margin-left: -44px;
+  position: absolute;
+  margin-top: -7px;
+}
+.booking .-add-row-div {
+  display: flex;
+  justify-content: space-between;
+}
+.booking .table .-item-td span {
+  position: absolute;
+  margin-top: 8px;
+}
+.booking .table .-total-amount .fa-trash {
+  font-size: 20px;
+  padding: 6px;
+}
+.booking .-order-no {
+  padding-right: 25px;
+}
+
+.booking .-right-align {
+  text-align: right;
+}
+.booking .-center-align {
+  text-align: center;
+}
+.booking tr:last-child {
+  position: sticky;
+  bottom: 0;
+  background-color: #f2f2f2;
+}
+.booking .grandTotal .float-label {
+  top: -8 !important;
+}
+.booking .-add-discription-btn {
+  width: 310px;
+  height: 23px;
+  margin-top: 17px;
+  margin-left: 10px;
+  background: #448aff !important;
+}
+.booking .-mat-btn {
+  height: 23px;
+  margin-top: 17px;
+  background: #448aff !important;
+}
+.booking button:focus {
+  outline: none !important;
+}
+.booking .mat-mdc-raised-button[disabled][disabled] {
+  opacity: 0.7 !important;
+}

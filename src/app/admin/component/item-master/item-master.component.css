@@ -1,0 +1,42 @@
+.table-hover .fa-edit {
+  padding-right: 25px;
+  font-size: 20px;
+}
+.table-hover .fa {
+  font-size: 20px;
+}
+
+/* .cdk-overlay-pane {
+  max-width: 90vw !important;
+  transform: translate(0px);
+} */
+
+.cdk-overlay-pane {
+  /* top: 20px;
+  position: absolute !important;
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  top: 25%;
+  left: 30%; */
+}
+
+.right-align {
+  text-align: right;
+}
+
+.card .card-block {
+  padding: 0px 20px 20px 20px !important;
+}
+.item-master .tools {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.item-master .quick-search {
+  width: 100px;
+}

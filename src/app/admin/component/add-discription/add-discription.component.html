@@ -1,0 +1,25 @@
+<div class="popup">
+    <div class="popup-header">
+        <h2>{{lblHeader}}</h2>
+    </div>
+    <div class="popup-content-container">
+        <div class="card-block">
+            <form class="form-material">
+                <div class="form-group form-primary">
+                    <textarea type="text" name="itemName" [(ngModel)]="txtDescription" class="form-control -description"
+                        style="height: 156px!important;" required=""></textarea>
+                    <span class="form-bar"></span>
+                    <label class="float-label">Description</label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup-footer-container right-align">
+        <div class="cancel-button">
+            <button type="button" (click)="onCancel()" class="btn btn-secondary">Close</button>
+        </div>
+        <div class="save-button -last-child">
+            <button type="button" (click)="onSave()" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</div>

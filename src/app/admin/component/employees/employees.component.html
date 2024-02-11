@@ -1,0 +1,11 @@
+<div class="card employees-table">
+    <div class="tools">
+        <h5>Manage Employees</h5>
+        <button (click)="onAddNewEmpClick()" class="btn btn-primary btn-round waves-effect waves-light"
+            style="float:right">Add Employee</button>
+    </div>
+    <div [ngStyle]="{'height':tableHeight}">
+        <app-table-views [displayedColumns]="displayedColumns" [rowData]="rowData" (onClick)="deleteEmployee($event)"
+            (onClicksEdit)="openEditForm($event)"></app-table-views>
+    </div>
+</div>

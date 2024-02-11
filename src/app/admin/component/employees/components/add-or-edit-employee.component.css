@@ -1,0 +1,60 @@
+.add-employee .lblheader-text {
+  text-align: center;
+  font-size: 27px;
+}
+.add-employee .content {
+  padding-top: 10px;
+}
+.add-employee .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  margin-left: 4px;
+  margin-right: 0px !important;
+  margin-top: 20px;
+}
+.add-employee
+  .mat-mdc-text-field-wrapper
+  .mat-mdc-form-field-flex
+  .mdc-floating-label--float-above {
+  top: 30px !important;
+  color: var(--lightbluegreen) !important;
+}
+.add-employee .row mat-form-field {
+  width: 48% !important;
+}
+.add-employee .action {
+  padding: 0px 25px 20px;
+}
+.add-employee .action button {
+  flex: 1;
+}
+
+.add-employee .mat-mdc-button.mat-mdc-button-base,
+.mat-mdc-raised-button.mat-mdc-button-base,
+.mat-mdc-unelevated-button.mat-mdc-button-base,
+.mat-mdc-outlined-button.mat-mdc-button-base {
+  height: 40px !important;
+}
+
+.add-employee {
+  height: 500px;
+  width: 700px;
+  padding: 35px 35px 0px 35px;
+}
+
+.add-employee
+  .mdc-text-field--outlined.mdc-notched-outline--upgraded
+  .mdc-floating-label--float-above,
+.mdc-text-field--outlined
+  .mdc-notched-outline--upgraded
+  .mdc-floating-label--float-above {
+  font-size: inherit !important;
+}
+
+.mat-mdc-select-panel-above .mdc-menu-surface.mat-mdc-select-panel {
+  background: white !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transform-origin: bottom center;
+}
